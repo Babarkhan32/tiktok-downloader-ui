@@ -19,7 +19,7 @@ export default function Home() {
     useDownloader();
   const downloadVideo = async (videoUrl: string) => {
     try {
-      if (!videoUrl.includes("www.tiktok.com")) {
+      if (!videoUrl.includes("tiktok.com")) {
         return toast("Please provide non-empty and tiktok urls only");
       }
       setLoading(true);

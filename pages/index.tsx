@@ -7,6 +7,12 @@ import useDownloader from "react-use-downloader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export default function Home() {
+  type Response = {
+    success: Boolean,
+    data: string
+  }
+
+
   const [url, setUrl] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const { size, elapsed, percentage, download, cancel, error, isInProgress } =
@@ -30,8 +36,12 @@ export default function Home() {
         referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
         body: JSON.stringify({ videoUrl }), // body data type must match "Content-Type" header
       });
-      response = await response.json();
-      await download(response.data, Date.now() + "_video.mp4");
+      let result: Response = {
+        success: true,
+        data:''
+      };
+      result = await response.json();
+      await download(result.data, Date.now() + "_video.mp4");
 
       // let delVid = await fetch("http://localhost:8000/delete-video", {
       //   method: "DELETE", // *GET, POST, PUT, DELETE, etc.

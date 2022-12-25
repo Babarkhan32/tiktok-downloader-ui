@@ -17,7 +17,7 @@ export default function Home() {
         return toast("Please provide non-empty and tiktok urls only");
       }
       setLoading(true);
-      let response = await fetch("http://localhost:8000/video", {
+      let response = await fetch("https://beige-dugong-toga.cyclic.app/video", {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         // mode: 'cors', // no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached

@@ -15,7 +15,7 @@ export default function Home() {
 
   const [url, setUrl] = React.useState("");
   const [loading, setLoading] = React.useState(false);
-  const { size, elapsed, percentage, download, cancel, error, isInProgress } =
+  const {  percentage, download } =
     useDownloader();
   const downloadVideo = async (videoUrl: string) => {
     try {
